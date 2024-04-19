@@ -1,0 +1,30 @@
+<div class="main_div">
+    <h2>Listar Tarefas</h2>
+    <div class="sub-div">
+        <Form [formGroup]="tarefaForm" (ngSubmit)="inserir()">
+            <div style="gap:10px;">
+                <p>
+                    Título: <input type="text" formControlName="titulo" />
+                </p>
+                <p>
+                    Descrição: <input type="text" formControlName="descricao" />
+                </p>
+                <p>
+                    Data de Vencimento: <input type="text" formControlName="dataDeVencimento" />
+                </p>
+                <p>
+                    Prioridade(Alta/Média/Baixa): <input type="text" formControlName="prioridade" />
+                </p>
+            </div>
+            <button type="submit">Adicionar Tarefa</button>
+        
+        </Form>
+        
+        <ul>
+            <li *ngFor="let item of tarefas; index as i">
+                {{item.id}} - {{item.titulo}} - {{item.descricao}} - {{item.dataDeVencimento}} - {{item.prioridade}}
+                <button (click)="remover(item.id)">Remover</button>
+            </li>
+        </ul>
+    </div>
+</div>
