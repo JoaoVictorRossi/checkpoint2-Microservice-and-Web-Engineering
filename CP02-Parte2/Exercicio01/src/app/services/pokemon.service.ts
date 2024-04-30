@@ -7,7 +7,7 @@ import { Pokemon } from '../interface/Pokemon';
   providedIn: 'root'
 })
 export class PokemonService {
-  private request = 'http://demo5154149.mockable.io/listar-pokemons';
+  private request = 'https://demo0860081.mockable.io/pockemon';
   pokemons: Pokemon[] = [];
 
   constructor(private http: HttpClient) { }
