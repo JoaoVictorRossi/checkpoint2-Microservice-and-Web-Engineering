@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fornecedor.component.css">
+    <title>fornecedor</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="title">Criar Fornecedor</h1>
+                <form class="fornecedor-form" [formGroup]="fornecedorForm" (ngSubmit)="inserir()">
+                    <div class="form-group">
+                        <label for="nome" class="visually">Nome</label>
+                        <input type="text" class="form-control" id="nome" placeholder="Nome" formControlName="nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="endereco" class="visually">Endereço</label>
+                        <input type="text" class="form-control" id="endereco" placeholder="Endereço"
+                            formControlName="endereco">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone" class="visually">Telefone</label>
+                        <input type="text" class="form-control" id="telefone" placeholder="Telefone"
+                            formControlName="telefone">
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-3">Enviar</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="title">Fornecedores</h2>
+                <table class="table table-dark table-striped mt-3">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Endereço</th>
+                            <th scope="col">Telefone</th>
+                            <th scope="col">Acoes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (item of fornecedores; track $index){
+                        <tr>
+                            <th scope="row">{{item.id}}</th>
+                            <td>{{item.nome}}</td>
+                            <td>{{item.endereco}}</td>
+                            <td>{{item.fone}}</td>
+                            <td>
+                                <input type="button" value="remover" class="btn btn-danger" (click)="remover(item.id)" />
+                                | <a href="fornecedor/{{item.id}}" class="btn btn-warning">Editar</a>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
